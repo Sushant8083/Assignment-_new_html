@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safety Audit Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 font-['gilroy']">
+
+    <nav class="bg-white  shadow-md px-3 py-1 flex justify-between items-center">
+    <div class="flex items-center">
+      <span class="text-lg font-bold text-indigo-600">Safety Audit</span>
+      <div class="ml-5 gap-x-3  flex text-gray-600 text-xl">
+       <div class="flex gap-x-3 border-l-2 border-gray-200 border-r-2 px-2" >
+        <i class="ri-arrow-go-back-line cursor-pointer  "></i>
+        <i class="ri-arrow-go-forward-line cursor-pointer"></i>
+       </div>
+       <i class="ri-scissors-2-line cursor-pointer  "></i>
+        <i class="ri-file-copy-line cursor-pointer"></i>
+        <i class="ri-file-add-line cursor-pointer"></i>
+      </div>
+        <div id="menuToggle" class="md:hidden text-2xl ml-4 cursor-pointer">
+      <i class="ri-menu-line"></i>
+    </div>
+    </div>
+  
+  </nav>
+  <div class="flex  relative">
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-white pt-8 absolute md:relative z-40 hidden md:block w-full md:w-72 border-r">
+      <div class="p-4 flex flex-col">
+        <h1 class="text-xl font-semibold">Charts</h1>
+        <div class="icons flex justify-between text-xl mt-2">
+          <i class="ri-pie-chart-line"></i>
+          <i class="ri-bar-chart-grouped-line"></i>
+          <i class="ri-line-chart-line"></i>
+          <i class="ri-donut-chart-fill"></i>
+          <i class="ri-layout-top-line"></i>
+          <i class="ri-bar-chart-horizontal-line"></i>
+          <i class="ri-macbook-line"></i>
+        </div>
+      </div>
+      <div class="p-2">
+        <h2 class="text-lg font-bold">Form Fields</h2>
+        <div class="relative mt-2">
+          <input type="search" placeholder="Search..." class="w-full p-1 pl-10 border rounded">
+          <i class="ri-search-line absolute left-3 top-1 text-gray-400"></i>
+        </div>
+        
+        <ul class="mt-2 px-2">
+          <li class="mb-2 text-sm font-semibold flex items-center">
+            <span class="text-xl flex mr-1">
+              <i class="ri-arrow-drop-right-line"></i>
+              <i class="ri-side-bar-line"></i>
+            </span>
+            Facility Complaints
+          </li>
+          <li class="mb-2 text-sm font-semibold flex items-center">
+            <span class="text-xl flex mr-1">
+              <i class="ri-arrow-drop-right-line"></i>
+              <i class="ri-side-bar-line"></i>
+            </span>
+            Service Requests
+          </li>
+          <li class="mb-2 text-sm font-semibold flex items-center">
+            <span class="text-xl flex mr-1">
+              <i class="ri-arrow-drop-down-line"></i>
+              <i class="ri-side-bar-line"></i>
+            </span>
+            Subscriptions
+          </li>
+          <div class="mt-2 ml-8 px-1 bg-orange-400 border-l-2 border-zinc-400">
+            <li class="flex font-medium items-center gap-1 text-sm mb-2">
+              <i class="ri-attachment-line"></i>Complaint
+            </li>
+            <li class="flex font-medium items-center gap-1 text-sm mb-2">
+              <i class="ri-time-line"></i>Created On
+            </li>
+            <li class="flex  font-medium items-center gap-1 text-sm mb-2">
+              <i class="ri-calendar-line"></i> Date Of Execution
+            </li>
+          </div>
+          <li class="mb-2 flex font-semibold items-center">
+            <span class="text-xl flex mr-1">
+              <i class="ri-arrow-drop-down-line ml-1"></i>
+              <i class="ri-side-bar-line"></i>
+            </span>
+            Projects
+          </li>
+          <div class="mt-2 ml-8 px-1 bg-orange-400 border-l-2 border-zinc-400">
+            <li class="flex  font-medium items-center gap-1 text-sm mb-2">
+              <i class="ri-attachment-line"></i>Complaint
+            </li>
+            <li class="flex bg-blue-200 border-blue-400 w-28 border-2  items-center gap-1 text-sm mb-2">
+              <i class="ri-time-line"></i>Created On
+            </li>
+            <li class="flex font-medium items-center gap-1 text-sm mb-2">
+              <i class="ri-calendar-line"></i> Date Of Execution
+            </li>
+          </div>
+          <li class="mb-2 flex font-semibold items-center">
+            <span class="text-xl flex mr-1">
+              <i class="ri-arrow-drop-down-line ml-1"></i>
+              <i class="ri-side-bar-line"></i>
+            </span>
+            Contracts
+          </li>
+          <div class="mt-2 ml-8 px-1 bg-orange-400 border-l-2 border-zinc-400">
+            <li class="flex  font-medium items-center gap-1 text-sm mb-2">
+              <i class="ri-attachment-line"></i>Complaint
+            </li>
+            <li class="flex font-medium items-center gap-1 text-sm mb-2">
+              <i class="ri-time-line"></i>Created On
+            </li>
+            <li class="flex  font-medium items-center gap-1 text-sm mb-2">
+              <i class="ri-calendar-line"></i> Date Of Execution
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="flex md:flex-row p-4 md:mt-0 mt-5 flex-col w-full md:p-6">
+      <div class="md:w-[75%] py-4 md:relative bg-white px-4 flex flex-col ">
+        <h2 class="text-2xl mb-5 font-bold">Monthly Report</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-10 ">
+          <!-- Chart 1 -->
+          <div class="bg-white  p-4 rounded shadow">
+            <div class="flex-col mb-4">
+              <div class="flex justify-between items-center text-2xl font-medium">
+                <i class="ri-filter-line"></i>
+                <i class="ri-more-fill"></i>
+              </div>
+              <h3 class="font-bold">Work Orders By Status</h3>
+            </div>
+            <canvas id="workOrdersChart" height="220"></canvas>
+          </div>
+          <!-- Chart 2 -->
+          <div class="bg-white border-2 border-blue-500 p-4 rounded shadow">
+            <div class="flex-col mb-4">
+              <div class="flex justify-between items-center text-2xl font-medium">
+                <i class="ri-filter-line"></i>
+                <i class="ri-more-fill"></i>
+              </div>
+              <h3 class="font-bold">Service Requests</h3>
+            </div>
+            <canvas id="serviceRequestsChart" height="220"></canvas>
+          </div>
+           <!-- Chart 3 -->
+        <div class="bg-white  mb-4 px-4 rounded shadow">
+          <div class="flex-col mb-4">
+            <div class="flex relative justify-between items-center text-2xl font-medium">
+              <i class="ri-filter-line"></i>
+            <!-- Region dropdown -->
+
+    <select id="region" name="region" class=" text-sm p-1 border border-gray-300 rounded">
+      <option value="region1">Region 1</option>
+      <option value="region2">Region 2</option>
+
+    </select>
+  <!-- Country dropdown -->
+  <button id="countryDropdown" class="text-sm flex gap-x-2 border items-center border-gray-300 rounded px-1 relative">
+    Select a country    <i class="ri-arrow-drop-down-line text-xl"></i>
+  </button>
+  <div id="countryDropdownContent" class="absolute text-sm top-10 left-0 mt-2 w-full bg-white border border-gray-300 rounded shadow-lg hidden z-50">
+    <div class="relative p-2">
+      <input type="search" placeholder="Search..." class="w-full p-1 pl-10 border rounded">
+      <i class="ri-search-line absolute left-4 top-3 text-gray-400"></i>
+    </div>
+    <div class="p-2">
+      <div class="flex items-center mb-2">
+        <input type="checkbox" id="country1" name="country1" class="mr-2">
+        <label for="country1">Angola</label>
+      </div>
+      <div class="flex items-center mb-2">
+        <input type="checkbox" id="country2" name="country2" class="mr-2">
+        <label for="country2"> United States of America </label>
+      </div>
+      <div class="flex items-center mb-2">
+        <input type="checkbox" id="country3" name="country3" class="mr-2">
+        <label for="country3"> India</label>
+      </div>
+      <div class="flex items-center mb-2">
+        <input type="checkbox" id="country4" name="country4" class="mr-2">
+        <label for="country4"> United Kingdom </label>
+      </div>
+      <div class="flex items-center mb-2">
+        <input type="checkbox" id="country5" name="country5" class="mr-2">
+        <label for="country5">Cyprus</label>
+      </div>
+    </div>
+    <div class="flex justify-between items-center p-2">
+      <div class="text-xs font-normal text-zinc-400 gap-3 flex">
+        <h3>Select all</h3>
+        <h3>Clear all</h3>
+      </div>
+      <h2 class="text-lg font-semibold" >Done</h2>
+    </div>
+  </div>
+
+
+            </div>
+            <h3 class="font-bold">Status</h3>
+          </div>
+          <canvas id="statusChart" height="220"></canvas>
+        </div>
+        <div class="absolute w-[75%] left-0 bottom-0  flex bg-white" >
+         <div class="flex  gap-2 px-1 border-r-2" >
+          <i class="ri-grid-fill text-gray-300 md:text-xl"></i>
+          <h3 class="font-semibold text-lg md:text-sm" >Monthly Sales Report </h3>
+          <i class="ri-more-fill md:text-xl text-bold"></i>
+         </div>
+         <div class="flex  gap-2 px-1 border-r-2" >
+          <i class="ri-grid-fill text-gray-300 md:text-xl"></i>
+          <h3 class="font-semibold text-lg md:text-sm" >Untitled Page </h3>
+          <i class="ri-more-fill md:text-xl text-bold"></i>
+         </div>
+         <div class="flex  gap-2 px-1 border-r-2" >
+          <i class="ri-grid-fill text-gray-300 md:text-xl"></i>
+          <h3 class="font-semibold text-lg md:text-sm" >Untitled Page </h3>
+          <i class="ri-more-fill md:text-xl text-bold"></i>
+         </div>
+        </div>
+        </div>
+       
+      </div>
+      <div class="md:w-4/12 w-full shadow-lg bg-zinc-200 h-full md:ml-5 p-2">
+        <div class="flex items-center gap-x-5 mb-3 text-2xl">
+          <i class="ri-equalizer-line border-b-2 border-purple-500 p-2"></i>
+          <i class="ri-question-answer-line "></i>
+          <i class="ri-history-line"></i>
+        </div>
+        <div class="md:mb-0 mb-24" >
+          <h3 class="text-lg font-bold"> <i class="ri-layout-horizontal-line font-medium text-2xl"></i> Form Settings</h3>
+          <div class="mt-4 py-3 flex flex-col items-center px-4 bg-white">
+            <label class="font-medium mb-2 self-start" for="Name">Name</label>
+            <input type="text" placeholder="Name" class="w-full p-2 border rounded mb-4">
+            <label class="font-medium my-2 self-start " for="Description">Description</label>
+            <input type="text" placeholder="Description" class="w-full p-2 border rounded mb-4">
+            <button class="px-4 py-2 flex items-center bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded">
+              Design
+              <i class="ri-arrow-right-line ml-2"></i>
+            </button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const workOrdersChart = new Chart(document.getElementById('workOrdersChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Demo D...', 'Dark Not J..', 'Did Not Re...', 'In Follow...'],
+        datasets: [{
+          data: [100, 200, 300, 400],
+          backgroundColor: 'rgba(99, 102, 241, 1)',
+          borderColor: 'rgba(123, 104, 238, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+        legend: {
+          display: false
+        },
+        title: {
+          display: false
+        }
+      },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const serviceRequestsChart = new Chart(document.getElementById('serviceRequestsChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Demo D...', 'Dark Not J..', 'Did Not Re...', 'In Follow...'],
+        datasets: [{
+          label: '# of Service Requests',
+          data: [150, 250, 350, 450],
+          backgroundColor: 'rgba(99, 102, 241, 1)',
+          borderColor: 'rgba(123, 104, 238, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+        legend: {
+          display: false
+        },
+        title: {
+          display: false
+        }
+      },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const statusChart = new Chart(document.getElementById('statusChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Demo D...', 'Dark Not J..', 'Did Not Re...', 'In Follow...'],
+        datasets: [{
+          data: [120, 220, 320, 420],
+          backgroundColor: 'rgba(99, 102, 241, 1)',
+          borderColor: 'rgba(123, 104, 238, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+        legend: {
+          display: false
+        },
+        title: {
+          display: false
+        }
+      },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      var sidebar = document.getElementById('sidebar');
+      var menuIcon = document.getElementById('menuToggle').querySelector('i');
+
+      if (sidebar.classList.contains('hidden')) {
+        sidebar.classList.remove('hidden');
+        menuIcon.classList.remove('ri-menu-line right-5');
+        menuIcon.classList.add('ri-close-line');
+      } else {
+        sidebar.classList.add('hidden');
+        menuIcon.classList.remove('ri-close-line');
+        menuIcon.classList.add('ri-menu-line');
+      }
+    });
+    document.getElementById('countryDropdown').addEventListener('click', function() {
+  var dropdownContent = document.getElementById('countryDropdownContent');
+  if (dropdownContent.classList.contains('hidden')) {
+    dropdownContent.classList.remove('hidden');
+  } else {
+    dropdownContent.classList.add('hidden');
+  }
+});
+
+window.addEventListener('click', function(e) {
+  var dropdownButton = document.getElementById('countryDropdown');
+  var dropdownContent = document.getElementById('countryDropdownContent');
+  
+  if (!dropdownButton.contains(e.target) && !dropdownContent.contains(e.target)) {
+    dropdownContent.classList.add('hidden');
+  }
+});
+
+  </script>
+</body>
+</html>
